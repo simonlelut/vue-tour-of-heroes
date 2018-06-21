@@ -1,21 +1,31 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from './views/Home.vue'
-import About from './views/About.vue'
+import Dashboard from './components/Dashboard/Dashboard.vue'
+import Heroes from './components/heroes/Heroes.vue'
+import heroDetail from './components/hero-detail/heroDetail.vue'
 
-Vue.use(Router)
+Vue.use(Router);
 
 export default new Router({
   routes: [
     {
-      path: '/',
-      name: 'home',
-      component: Home
+      path: '',
+      redirect : {name: "Dashboard"}
     },
     {
-      path: '/about',
-      name: 'about',
-      component: About
+      path: '/dashboard',
+      name: 'Dashboard',
+      component: Dashboard
+    },
+    {
+      path: '/heroes',
+      name: 'Heroes',
+      component: Heroes
+    },
+    {
+      path: '/detail/:id',
+      name: 'hero-detail',
+      component: heroDetail
     }
   ]
 })
